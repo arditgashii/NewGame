@@ -4,6 +4,29 @@ body {
     overflow: hidden;
   }
 
+/*Header CSS*/
+.black-header {
+    background-color: black;
+    height: 60px;
+  }
+  
+  .header-pages {
+    display: flex;
+    justify-content: center;
+    padding-top: 14px;
+  }
+  
+  .header-pages a {
+    color: white;
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+  .header-pages a.active {
+    font-weight: bold;
+  }
+
 /*SlideShow CSS*/
 .slideshow-container {
   position: relative;
@@ -29,3 +52,4 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
