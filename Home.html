@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Game</title>
-  <link rel="stylesheet" type="text/css" href="Game.css">
+  <link rel="stylesheet" type="text/css" href="Style/Game.css">
 </head>
-<header class="black-header">
-  <div class="header-pages">
-    <a href="Home.html" class="active">Home</a>
-    <a href="Game.html">Game</a>
-    <a href="About-us.html">About Us</a>
-  </div>
-</header>
+<body>
+  <header class="transparent-header">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Game</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="slideshow-container">
-    <div class="slide">
-      <img src="image-1.jpg" alt="Gaming Image 1">
+  <div class="slideshow">
+    <video class="video-slide" src="Videos/video1.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="Videos/video2.mp4" autoplay muted loop></video>
+
+    <div class="arrow arrow-right" onclick="changeSlide(1)">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <div class="slide">
-      <img src="image-2.jpg" alt="Gaming Image 2">
+
+    <div class="arrow arrow-left" onclick="changeSlide(-1)">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <div class="slide">
-      <img src="image-3.jpg" alt="Gaming Image 3">
-    </div>
+
   </div>
 
-    <script src="Game.js"></script>
+  <script src="Script/Game.js"></script>
 </body>
 </html>
