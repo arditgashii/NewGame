@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-/*Header CSS*/
+/* Header CSS */
 
 .transparent-header {
   background-color: transparent;
@@ -36,7 +36,7 @@ body {
   text-decoration: none;
 }
 
-/*SlideShow CSS*/
+/* SlideShow CSS */
 
 .slideshow {
   position: relative;
@@ -69,9 +69,7 @@ body {
   z-index: 2; /* Ensure arrows are on top of the videos */
 }
 
-
-
-/*Arrow CSS*/
+/* Arrow CSS */
 
 .arrow-right {
   right: 5%;
@@ -120,4 +118,128 @@ body {
     opacity: 0;
     transform: rotate(45deg) translate(20px, 20px);
   }
+}
+
+/* Card CSS */
+
+.card {
+  width: 800px;
+  height: 380px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10; /* Set a higher z-index to ensure it appears on top of the video */
+}
+
+.card h1 {
+  font-size: 53px;
+  color: #680045;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 900;
+}
+
+.card h5 {
+  font-family: 'Agdasima';
+  font-size: 30px;
+  margin: -20px 55px 0px 55px;
+}
+
+
+
+button {
+  display: flex;
+  align-items: center;
+  font-family: 'Agdasima';
+  font-weight: 900;
+  font-size: 23px;
+  padding: 0.8em 1.3em 0.8em 0.9em;
+  color: white;
+  background: linear-gradient(to right, #3f0036, #a5005b, #ff00d9);
+  border: none;
+  letter-spacing: 0.05em;
+  border-radius: 16px;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+button:hover{
+  background: linear-gradient(to right, #95007f, #ff2b9f, #fe6ae8);
+}
+
+button svg {
+  margin-right: 3px;
+  transform: rotate(30deg);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button span {
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button:hover svg {
+  transform: translateX(5px) rotate(90deg);
+}
+
+button:hover span {
+  transform: translateX(7px);
+}
+
+
+
+.aboutus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* Set a lower z-index to ensure other content is displayed on top */
+  overflow: hidden;
+}
+
+.aboutus-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.aboutus-card {
+  width: 1000px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.45);
+  position: absolute;
+  top: 50%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10; /* Set a higher z-index to ensure it appears on top of the video */
+}
+
+.aboutus-card h1 {
+  font-size: 53px;
+  color: #680045;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 900;
+}
+
+.aboutus-card h5 {
+  font-family: 'Agdasima';
+  font-size: 30px;
+  margin: -20px 55px 0px 55px;
 }
