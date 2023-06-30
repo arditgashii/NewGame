@@ -1,6 +1,3 @@
-// import * as PIXI from './pixi.js';
-// import Victor from 'victor';
-
 let canvasSize = 925;
 let canvasWidth = 1920;
 const canvas = document.getElementById('mycanvas');
@@ -51,20 +48,15 @@ function createBullet() {
 }
 
 
-// function updateBullets() {
-//   bullets.forEach((bullet) => {
-//     bullet.position.set(bullet.position.x + bullet.velocity.x, bullet.position.y + bullet.velocity.y);
-//   });
-// }
 
 function updateBullets() {
   bullets.forEach((bullet) => {
     bullet.position.set(bullet.position.x + bullet.velocity.x, bullet.position.y + bullet.velocity.y);
 
-    // Check collision with enemy
+
     const bulletPosition = new Victor(bullet.position.x, bullet.position.y);
     if (bulletPosition.distance(enemy.position) < enemyRadius) {
-      // Bullet hit the enemy
+
       app.stage.removeChild(bullet);
       bullets.splice(bullets.indexOf(bullet), 1);
       let r = randomSpawnPoint();
@@ -75,7 +67,7 @@ function updateBullets() {
 
 
 
-// Handle user input for shooting
+
 function handleShoot(e) {
   if (e.code === 'Space') {
     createBullet();
