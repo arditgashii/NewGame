@@ -6,21 +6,20 @@
   <link rel="stylesheet" type="text/css" href="SnakeStyle.css">
 </head>
 <body>
-
-    <video id="video-background" autoplay loop muted>
-        <source src="Videos/snakevideo.mp4" type="video/mp4">
-        <!-- Add additional source elements for different video formats -->
-      </video>
+  <video id="video-background" autoplay loop muted>
+    <source src="./Videos/snakevideo.mp4" type="video/mp4">
+    <!-- Add additional source elements for different video formats -->
+  </video>
   <div id="game-board"></div>
   <div id="button-container">
-    <h1>Snake Game</h1>
-    <button id="start-button">Start Game</button>
-    <button id="restart-button">Restart Game</button>
+    <button id="startButton">Start Game</button>
+    <button id="returnhomeButton">
+      <a href="../../Pages/Home.html">Return to Home</a>
+    </button>
   </div>
-
   <p id="score">Score: 0</p>
-
-
+  <h1 id="gameOverMessage" style="display: none;">You have losed!</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.7/pixi.min.js"></script>
   <script src="SnakeScript.js"></script>
 </body>
 </html>
