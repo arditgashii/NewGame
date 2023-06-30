@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     height: 610,
     backgroundColor: 0x008000,
   });
-  
+
   // Add additional styles for the app view
   app.view.style.margin = '0';
   app.view.style.position = 'absolute';
@@ -13,14 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
   app.view.style.left = '50%';
   app.view.style.transform = 'translate(-50%, -50%)';
 
-
-  
   // Add the Pixi.js canvas to the HTML document
-  document.body.appendChild(app.view);
-
+  document.getElementById('game-board').appendChild(app.view);
 
   // Define the game constants
-  var gridSize = 20;
+  var gridSize = 30;
   var gridWidth = app.view.width / gridSize;
   var gridHeight = app.view.height / gridSize;
 
@@ -43,9 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var startButton = document.getElementById('startButton');
   var gameOverMessage = document.getElementById('gameOverMessage');
 
-  // Add click event listener to the start button
-  startButton.addEventListener('click', startGame);
-
   // Initialize the snake graphics
   var snakeGraphics = new PIXI.Graphics();
   app.stage.addChild(snakeGraphics);
@@ -53,6 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize the food graphics
   var foodGraphics = new PIXI.Graphics();
   app.stage.addChild(foodGraphics);
+
+  // Initialize the sounds
+  var startSound = new Audio('./Sounds/start.mp3');
+  var loseSound = new Audio('./Sounds/lose.mp3');
+  var bonusSound = new Audio('./Sounds/bonus.wav');
+
+  // Add click event listener to the start button
+  startButton.addEventListener('click', startGame);
 
   // Start the game
   function startGame() {
@@ -68,12 +70,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hide the game over message
     gameOverMessage.style.display = 'none';
 
+    // Hide the game title
+    document.getElementById('game-title').style.display = 'none';
+
+    // Show the game board
+    document.getElementById('game-board').style.display = 'block';
+
     // Disable the start button
     startButton.disabled = true;
 
     // Start the game loop
     gameRunning = true;
     gameLoopInterval = setInterval(gameLoop, 1000 / 10);
+
+    // Play the start sound
+    startSound.play();
   }
 
   // Restart the game
@@ -86,6 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Show the game over message
     gameOverMessage.style.display = 'block';
+
+    // Show the game title
+    document.getElementById('game-title').style.display = 'block';
+
+    // Hide the game board
+    document.getElementById('game-board').style.display = 'none';
 
     // Enable the start button
     startButton.disabled = false;
@@ -119,13 +136,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (head.x === food.x && head.y === food.y) {
       food = generateFood(); // Generate new food
       score++; // Increment the score
-      scoreElement.textContent = score; // Update the score display
+      scoreElement.textContent = "Score: " + score; // Update the score display
+      bonusSound.play(); // Play the bonus sound
     } else {
       snake.pop(); // Remove the tail segment of the snake
     }
 
     // Check if the snake hits itself or the wall
     if (checkSelfCollision() || checkWallCollision()) {
+      loseSound.play(); // Play the lose sound
       restartGame();
     }
   }
