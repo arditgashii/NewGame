@@ -23,6 +23,35 @@ const enemySpeed = 5;
 const enemies = [];
 let enemyHits = 0; 
 
+const healthBarWidth = 200;
+const healthBarHeight = 20;
+const healthBarMargin = 10;
+let maxHealth = 100;
+let currentHealth = maxHealth;
+
+const healthBarBackground = new PIXI.Graphics();
+healthBarBackground.beginFill(0x000000);
+healthBarBackground.drawRect(0, 0, healthBarWidth, healthBarHeight);
+healthBarBackground.endFill();
+healthBarBackground.position.set(healthBarMargin, app.screen.height - healthBarHeight - healthBarMargin);
+app.stage.addChild(healthBarBackground);
+
+const healthBar = new PIXI.Graphics();
+healthBar.beginFill(0xff0000);
+healthBar.drawRect(0, 0, healthBarWidth, healthBarHeight);
+healthBar.endFill();
+healthBar.position.set(healthBarMargin, app.screen.height - healthBarHeight - healthBarMargin);
+app.stage.addChild(healthBar);
+
+function updateHealthBar() {
+  const healthPercentage = currentHealth / maxHealth;
+  const newWidth = healthPercentage * healthBarWidth;
+  healthBar.clear();
+  healthBar.beginFill(0xff0000);
+  healthBar.drawRect(0, 0, newWidth, healthBarHeight);
+  healthBar.endFill();
+}
+
 function createEnemy() {
   const enemy = new PIXI.Graphics();
   let r = randomSpawnPoint();
@@ -42,7 +71,9 @@ function updateEnemies() {
     if (e.distance(s) < squareWidth / 2) {
       let r = randomSpawnPoint();
       enemy.position.set(r.x, r.y);
-      enemyHits++; 
+      enemyHits++;
+      currentHealth -= 20; // Decrease health by 20 when hit
+      updateHealthBar(); // Update the health bar
       if (enemyHits >= 5) {
         stopGame();
       }
@@ -147,3 +178,4 @@ const numEnemies = 5;
 for (let i = 0; i < numEnemies; i++) {
   createEnemy();
 }
+
