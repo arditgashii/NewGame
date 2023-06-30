@@ -97,7 +97,7 @@ body {
   font-weight: 900;
   text-align: center;
   padding-top: 120px;
-
+  margin-bottom: -20px;
 }
 
 .card-1 h5 {
@@ -278,3 +278,63 @@ body {
 }
 
 
+/*ViewGames CSS*/
+
+.vg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: purple;
+}
+
+.viewgames {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.viewgames-card {
+  width: 300px;
+  height: 400px;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.viewgames-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.viewgames-button {
+  display: flex;
+  justify-content: center;
+}
+.viewgames-button button {
+  padding: 10px 20px;
+  background-color: rgb(103, 0, 98);
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.viewgames-button button:hover{
+  padding: 13px 23px;
+  background-color: rgb(58, 0, 55);
+  font-size: 22px;
+}
+
+.viewgames-button a {
+  text-decoration: none;
+  color: white;
+}
