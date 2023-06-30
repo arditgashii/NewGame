@@ -1,86 +1,53 @@
 body {
-    margin: 0;
-    padding: 0;
-  }
-
-  #video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-
-  #game-content {
-    position: relative;
-    z-index: 1;
-    /* Add additional styles for your game content */
-  }
-
-  #game-content {
-    position: relative;
-    z-index: 1;
-    /* Add additional styles for your game content */
-  }
-  #game-board {
-width: 610px;
-height: 610px;
-background-color: rgba(0, 128, 0, 0.7);
-margin: 0 auto;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
 }
 
-  .cell {
-  background-color: rgba(0, 128, 0, 0.7);
-    width: 30px;
-    height: 30px;
-    border: 1px solid gray;
-    box-sizing: border-box;
-    position: absolute;
-  }
-  .snake {
-      background-image: url('./Images/snakeimage.png');
-      background-size: cover;
-  }
-  .food {
-    background-image: url('./Images/bird.png');
-    background-size: 25px;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
 
-  #start-button,
-  #restart-button {
-      background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
-      padding: 12px 25px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 20px;
-      margin: 4px 2px;
-      cursor: pointer;
-      font-family: "Audiowide", sans-serif;
-  }
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 
-  #start-button:hover,
-  #restart-button:hover {
-      background-color: #004f03;
-      color: rgb(152, 255, 185);
-  }
 
-  #button-container {
+#startButton, 
+#returnhomeButton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: "Audiowide", sans-serif;
+}
+
+#startButton:hover,
+#returnhomeButton:hover
+{
+  background-color: #004f03;
+  color: rgb(152, 255, 185);
+}
+
+#returnhomeButton a{
+color: white;
+text-decoration: none;
+}
+
+#button-container {
 display: flex;
 flex-direction: column;
 align-items: center;
 position: absolute;
-left: 3%;
+left: 100px;
 top: 48%;
 transform: translateY(-50%);
 color: white;
@@ -89,7 +56,7 @@ font-size: 25px;
 }
 
 #score{
-  display: flex;
+display: flex;
 flex-direction: column;
 align-items: center;
 position: absolute;
@@ -99,4 +66,15 @@ transform: translateY(-50%);
 color: white;
 font-family: "Audiowide", sans-serif;
 font-size: 50px;
+}
+
+#gameOverMessage {
+position: absolute;
+left: 45px;
+top: 200px;
+transform: translateY(-50%);
+color: black;
+font-family: "Audiowide", sans-serif;
+font-size: 40px;
+background-color: red;
 }

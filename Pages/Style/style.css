@@ -329,12 +329,14 @@ body {
 }
 
 .viewgames-button button:hover{
-  padding: 13px 23px;
-  background-color: rgb(58, 0, 55);
-  font-size: 22px;
+  padding: 12px 23px;
+  background-color: rgb(74, 0, 70);
+  font-size: 35px;
 }
 
 .viewgames-button a {
   text-decoration: none;
   color: white;
+  font-family: 'Agdasima';
+  font-size: 28px;
 }
